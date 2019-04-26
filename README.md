@@ -12,12 +12,12 @@ TypeForm = TypeForm_AdvancedAPI.CTypeForm(API_KEY)
 ```
 
 
-Get Form
+Get Form by ID <-- returns a CForm Object
 ```
-TypeForm.getformByID("XXXXXX")
+formobject = TypeForm.getformByID("XXXXXX")
 ```
 
-Get Workspaces <-- returns an array with Workspace Objects
+Get Workspaces <-- returns an array with CWorkspace Objects
 ```
 for workspace in TypeForm.getWorkspaces():
 	print(workspace.getID())
@@ -27,17 +27,13 @@ for workspace in TypeForm.getWorkspaces():
 		print(form.getTitle())
 ```
 
-Get Workspace by ID <-- returns the requested Workspace Object
+Get Workspace by ID <-- returns the requested CWorkspace Object
 ```
 workspaceobject = TypeForm.getWorkspaceByID("XXXXXXXX")
 ```
 
-Get Form by ID <-- returns the Form Object
-```
-formobject = TypeForm.getformByID("XXXXXX")
-```
 
-Get Form by ID <-- returns the Form Object
+getFormResponse <-- returns a CResponse Array from the Form
 ```
 responselist = TypeForm.getFormResponse(formobject)
 OR
