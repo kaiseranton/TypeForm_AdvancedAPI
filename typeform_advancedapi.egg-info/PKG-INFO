@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: typeform-advancedapi
+Version: 1.0.6
+Summary: TypeForm API written in python
+Home-page: https://github.com/kaiseranton/TypeForm_AdvancedAPI
+Author: Anton Kaiser
+Author-email: kaiser@kaiser.ovh
+License: UNKNOWN
+Description: # TypeForm_AdvancedAPI written in Python
+        ## by Anton Kaiser
+        
+        ###### pip install typeform-advancedapi
+        
+        
+        initialize
+        ```
+        import TypeForm_AdvancedAPI
+        API_KEY = ""
+        TypeForm = TypeForm_AdvancedAPI.CTypeForm(API_KEY)
+        ```
+        
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown

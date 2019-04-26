@@ -1,0 +1,10 @@
+README.md
+setup.cfg
+setup.py
+typeform_advancedapi/TypeForm_AdvancedAPI.py
+typeform_advancedapi/__init__.py
+typeform_advancedapi.egg-info/PKG-INFO
+typeform_advancedapi.egg-info/SOURCES.txt
+typeform_advancedapi.egg-info/dependency_links.txt
+typeform_advancedapi.egg-info/requires.txt
+typeform_advancedapi.egg-info/top_level.txt
