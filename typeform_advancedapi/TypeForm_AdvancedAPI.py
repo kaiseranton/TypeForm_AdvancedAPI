@@ -8,10 +8,8 @@ class CTypeForm:
 		self.workspaces = None
 	def getWorkspaces(self):
 		if self.workspaces == None:
-			print("Downloading all workspaces...")
 			self.WORKSPACES_FULLDATA = (requests.get(self.AUTH_URL + "/workspaces", headers=self.AUTH_HEADER)).json()
 			self.WORKSPACES_ITEMS = self.WORKSPACES_FULLDATA['items']
-			print("Download successfull!")
 			self.workspaces = list()
 			for workspacetext in self.WORKSPACES_ITEMS:
 				workspaceforms = (requests.get(self.AUTH_URL + "/workspaces/" + workspacetext['id'] + "/forms", headers=self.AUTH_HEADER)).json()['items']
@@ -51,6 +49,10 @@ class CTypeForm:
 		formfields = list()
 		for field in downloadData['fields']:
 			formfields.append(CFormField(field))
+			if 'properties' in field:
+				if 'fields' in field['properties']:
+					for f2 in field['properties']['fields']:
+						formfields.append(CFormField(f2))
 		return CForm(downloadData['id'],downloadData['title'],"", formfields)
 	
 	
@@ -146,6 +148,12 @@ class CAnswer:
 			self.result = answerstring['number']
 		if self.type == 'text':
 			self.result = answerstring['text']
+		if self.type == 'file_url':
+			self.result = answerstring['file_url']
+		if self.type == 'date':
+			self.result = answerstring['date']
+		if self.type == 'phone_number':
+			self.result = answerstring['phone_number']
 		if self.type == 'choice':
 			if 'label' in answerstring['choice']:
 				self.result = answerstring['choice']['label']
