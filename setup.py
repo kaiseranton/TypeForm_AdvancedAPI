@@ -8,7 +8,7 @@ setuptools.setup(
 	install_requires=[
           'requests>=2.21.0'
       ],
-    version="1.1.6",
+    version="1.1.7",
     author='Anton Kaiser',
     author_email='kaiser@kaiser.ovh',
     description="TypeForm API written in python",
