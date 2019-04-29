@@ -148,6 +148,8 @@ class CAnswer:
 			self.result = answerstring['number']
 		if self.type == 'text':
 			self.result = answerstring['text']
+		if self.type == 'email':
+			self.result = answerstring['email']
 		if self.type == 'file_url':
 			self.result = answerstring['file_url']
 		if self.type == 'date':
@@ -159,6 +161,11 @@ class CAnswer:
 				self.result = answerstring['choice']['label']
 			else:
 				self.result = answerstring['choice']['other']
+		if self.type == 'choices':
+			if 'labels' in answerstring['choices']:
+				self.result = answerstring['choices']['labels']
+			else:
+				self.result = answerstring['choices']['others']
 		if self.type == 'boolean':
 			self.result = answerstring['boolean']
 	def getField(self):
