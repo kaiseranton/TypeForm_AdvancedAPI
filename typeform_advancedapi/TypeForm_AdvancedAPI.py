@@ -26,8 +26,11 @@ class CTypeForm:
 		for wform in downloadDataForms:
 			downloadFormsList.append(CForm(wform['id'], wform['title'],wform['last_updated_at'], list()))
 		return CWorkspace(downloadData['id'],downloadData['name'],downloadFormsList)
-	def getFormResponse(self,form, indexfromchoice=False):
-		downloadData = (requests.get(self.AUTH_URL + "/forms/" + form.getFormID() + "/responses?page_size=500", headers=self.AUTH_HEADER)).json()['items']
+	def getFormResponse(self,form, indexfromchoice=False, after="nope"):
+		if after == "nope":
+			downloadData = (requests.get(self.AUTH_URL + "/forms/" + form.getFormID() + "/responses?page_size=1000", headers=self.AUTH_HEADER)).json()['items']
+		else:
+			downloadData = (requests.get(self.AUTH_URL + "/forms/" + form.getFormID() + "/responses?page_size=1000&since="+after, headers=self.AUTH_HEADER)).json()['items']
 		returndata = list()
 		for responsestring in downloadData:
 			if indexfromchoice:
