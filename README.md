@@ -40,6 +40,12 @@ OR
 responselist = TypeForm.getFormResponse(formobject,true) <-- This will replace every choice answer with the index instead of the name
 ```
 
+getFormResponse - After date  <-- returns a CResponse Array from the Form
+```
+date = "2019-04-29T00%3A00%3A00"
+responselist = TypeForm.getFormResponse(formobject,false,date)
+```
+
 Objects:
 ```
 CWorkspace:
